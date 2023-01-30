@@ -30,6 +30,9 @@ int main(){
     std::cout << "Example of scalar multiply \n";
     std::cout << v * 3.0f << std::endl;
     std::cout << 2.0f * v << std::endl;
+    // vector dot product
+    std::cout << "Example of dot product \n";
+    std::cout << v.dot(w) << std::endl;
 
     // Example of matrix
     std::cout << "Example of matrix \n";
@@ -41,9 +44,32 @@ int main(){
     std::cout << "Example of output \n";
     std::cout << i << std::endl;
     // matrix add i + j
+    std::cout << "matrix add i + j \n";
+    std::cout << i + j << std::endl;
     // matrix scalar multiply i * 2.0
+    std::cout << "matrix scalar multiply i * 2.0 \n";
+    std::cout << i*2.0 << std::endl;
     // matrix multiply i * j
+    std::cout << "matrix multiply i * j \n";
+    std::cout << i * j << std::endl;
     // matrix multiply vector i * v
+    std::cout << "matrix multiply vector i * v \n";
+    std::cout << i * v << std::endl;
+
+    // hw0: 
+    // Given P(2, 1), rotate 45 degrees counterclockwise, then translate (1, 2)
+    Eigen::Vector3f p;
+    p << 2, 1, 1; // Homogenous coordinate
+    Eigen::Matrix3f rotate, translate;
+    rotate << std::sqrt(2)/2.0, -std::sqrt(2)/2.0, 0,
+              std::sqrt(2)/2.0,  std::sqrt(2)/2.0, 0,
+                             0,                 0, 1;
+    translate << 1, 0, 1,
+                 0, 1, 2,
+                 0, 0, 1;
+    Eigen::Vector3f p_transformed;
+    p_transformed << translate * rotate * p;
+    std::cout << "transformed p:" << std::endl << p_transformed << std::endl;
 
     return 0;
 }
