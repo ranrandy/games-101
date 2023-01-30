@@ -8,5 +8,5 @@ int main(){
     else std::cout << "pre-standard C++\n";
 }
 
-// compile with: clang++ -std=c++11 test.cpp -o test
+// compile with: clang++ -std=c++14 test.cpp -o test
 // run with: ./test
